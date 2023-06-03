@@ -1,5 +1,5 @@
 <script setup>
-import App from './components/app.vue'
+import App from './views/app.vue'
 </script>
 
 <template>
