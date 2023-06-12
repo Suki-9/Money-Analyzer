@@ -20,22 +20,23 @@
 .Head_Bar {
     display: flex;
     align-items: center;
+    min-width: max(100vw, 900px);
 
     text-align: center;
 
     border-bottom: solid 1px rgb(255, 255, 255);
 }
 .Link_Box {
-    width: 68vw;
-    margin: 0.3% 2vw 0.3% 0;
+    width: max(68vw, 580px);
+    margin: 0.3% max(2vw, 20px) 0.3% 0;
 
     display: flex;
     justify-content: space-around;
     
 }
 .SiteTitle {
-    width: 28vw;
-    margin: 0.3% 0 0.3% 2vw;
+    width: max(28vw, 280px);
+    margin: 0.3% 0 0.3% max(2vw, 20px);
 
     display: flex;
     align-items: center;
@@ -51,7 +52,7 @@
     height: 20px;
 }
 .Head_Bar_Link {
-    width: 10vw;
+    width: max(10vw, 100px);
     border-right: solid 1px rgb(209,27,179);
     border-left: solid 1px rgb(209,27,179);
 }

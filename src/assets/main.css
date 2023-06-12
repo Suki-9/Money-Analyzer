@@ -7,3 +7,9 @@ a {color: rgb(255, 255, 255);text-decoration: none;}
     font-family: 'M PLUS 1p', sans-serif;
     color: rgb(255, 255, 255);
 }
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
