@@ -15,6 +15,6 @@ let n = 5
     flex-direction: column;
     align-items: center;
 
-    width: 1000px; 
+    width: 1000px;
 }
 </style>
