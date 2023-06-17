@@ -72,4 +72,4 @@ async function listFiles(authClient) {
   });
 }
 
-authorize();
+authorize()
