@@ -24,10 +24,10 @@ function leadCookie(key) {
         return null
     }
 }
-
+window.location.href = '/authorize'
 //トークンの有無を確認
 if (leadCookie("API_TOKEN") == null) {
-    alert('ない')
+    window.open('/authorize', '_blank');
 }
 </script>
 
