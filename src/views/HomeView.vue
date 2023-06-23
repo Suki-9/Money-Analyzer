@@ -27,7 +27,6 @@ function leadCookie(key) {
 }
 /*
 window.location.href = '/authorize'
-
 if (leadCookie("API_TOKEN") == null) {
     window.open('/authorize', '_blank');
 }*/
