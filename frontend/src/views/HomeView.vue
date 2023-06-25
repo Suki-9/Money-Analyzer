@@ -1,9 +1,11 @@
 <script setup>
 import Methods from '@/api/methods'
+import axios from 'axios'
 const Get = GetCookie()
 const Cookie = Get[0]
 const index = Get[1]
 
+//Cookieを取ってきてindexを生成
 function GetCookie() {
     const Cookie = document.cookie.split(";")
     const Cookies = []
@@ -16,6 +18,7 @@ function GetCookie() {
     return [Cookies,index]
 }
 
+//Cookie検索して任意もkeyを持つ値を返す
 function leadCookie(key) {
     let i = index.indexOf(key)
     if (i !== -1) {
@@ -24,16 +27,25 @@ function leadCookie(key) {
         return null
     }
 }
-async function AuthReDirect() {
-  let response = await Methods.Auth2URL()
-  console.log(response["data"]["AuthURL"])
-  window.open(response["data"]["AuthURL"],);
+
+//URLをバックエンドから取ってきてリダイレクト
+async function OAuthReDirect() {
+    let response = await Methods.Auth2URL()
+    window.open(response["data"]["OAuthURL"],)
+    window.close()
 }
-if (leadCookie("API_TOKEN") == null) {
-    AuthReDirect()
+
+//読み込み時にAuthorizatioCodeがなければ取ってくる
+if (leadCookie("AuthorizatioCode") == null) {
+    OAuthReDirect()
+} else {
+    let response = await Methods.GetToken(leadCookie("AuthorizatioCode"))
+    alert(response["data"]["AccessToken"])
 }
 </script>
+<script>
+</script>
+
 
 <template>
-
 </template>

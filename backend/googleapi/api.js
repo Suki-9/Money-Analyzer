@@ -1,4 +1,4 @@
-function genurl() {
+const genurl = () => {
     const {google} = require('googleapis');
     const fs = require('fs');
     const data = JSON.parse(fs.readFileSync('googleapi/client.json', 'utf8'))["web"];
@@ -18,7 +18,12 @@ function genurl() {
         scope: scopes
     });
   
-    return url;
+    return [url,YOUR_CLIENT_ID,YOUR_CLIENT_SECRET,YOUR_REDIRECT_URL];
 }
+const gettoken = (AuthorizatioCode) => {
+    return "d";
+};
 
-exports.genurl = genurl();
+
+exports.genurl = genurl
+exports.gettoken = gettoken
