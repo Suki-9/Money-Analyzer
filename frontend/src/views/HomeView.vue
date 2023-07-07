@@ -10,7 +10,9 @@ export default {
     }
   },
   setup() {
-    alert(Cookie.read(""))
+    if (!Cookie.read("refresh_token")) {
+      window.location = "./OAuth"
+    }
   },
   methods: {
 

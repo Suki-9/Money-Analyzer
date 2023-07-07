@@ -14,10 +14,17 @@ app.get('/api/oauth2', async function (req, res) {
     })
 })
 
-app.post('/api/token', async function (req, res) {
+app.post('/api/refresh_token', async function (req, res) {
     const AuthorizatioCode = req.body.code
     res.send({
-        token: await GoogleAPI.gettoken(AuthorizatioCode)
+        token: await GoogleAPI.GetRefresh_token(AuthorizatioCode)
+    })
+})
+
+app.post('/api/access_token', async function (req, res) {
+    const refresh_token = req.body.code
+    res.send({
+        token: await GoogleAPI.GetAccess_token(refresh_token)
     })
 })
 
