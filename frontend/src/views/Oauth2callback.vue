@@ -1,6 +1,33 @@
-<script setup>
-const AuthorizatioCode = location.search.replace("?code=","").split("&")[0]
-document.cookie = 'AuthorizatioCode=' +AuthorizatioCode
-window.open("/")
-window.close()
+<script>
+//import Cookie from "@/components/js/Cookie.js"
+import { useRoute } from 'vue-router'
+
+export default {
+    async mounted() {
+        const response = await this.GetTOKEN()
+        console.log(response)
+        document.cookie = `refresh_token=${response.token.refresh_token}`
+        document.cookie = `access_token=${response.token.access_token}`
+    },
+    methods: {
+        async GetTOKEN() {
+            const code = useRoute().query.code
+            const Refresh_TOKEN = await fetch("http://192.168.11.2:3000/api/token", {
+                mode: 'cors',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    code: code,
+                }),
+            }).then((response) => response.json()).then((data) => { return data });
+            return await Refresh_TOKEN
+        },
+    },
+}
 </script>
+
+<template>
+    
+</template>

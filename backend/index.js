@@ -8,33 +8,22 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/api/oauth2', function(req, res) {
+app.get('/api/oauth2', async function (req, res) {
     res.send({
-        OAuthURL: GoogleAPI.genurl[0],
-        clientId: GoogleAPI.genurl[1],
-        clientSecret: GoogleAPI.genurl[2],
-        redirectUri: GoogleAPI.genurl[3],
+        auth_url: await GoogleAPI.genurl()
     })
 })
 
-app.post('/api/gettoken', function(req, res) {
-    const AuthorizatioCode = req.body["AuthorizatioCode"]
-    if (AuthorizatioCode == undefined) {
-        res.send({
-            AccessToken: "AuthorizatioCode is not found!",
-            ErrorCode: "1"
-        })
-    } else {
-        res.send({
-            AccessToken: GoogleAPI.gettoken(AuthorizatioCode),
-            ErrorCode: "0"
-        })
-    }
+app.post('/api/token', async function (req, res) {
+    const AuthorizatioCode = req.body.code
+    res.send({
+        token: await GoogleAPI.gettoken(AuthorizatioCode)
+    })
 })
 
-app.get('/test', function(req, res) {
+app.get('/test', async function (req, res) {
     res.send({
-        msg: "うぇぶさぁばぁです(笑)"
+        auth_url: await GoogleAPI.genurl()
     })
 })
 

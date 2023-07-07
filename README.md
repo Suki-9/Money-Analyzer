@@ -2,5 +2,5 @@
 バックエンド何もわからん。
 タスケテ---- >_<?
 
-## やっておくこと
+## ToDo
 backend/googleapiにClient.jsを置いてね

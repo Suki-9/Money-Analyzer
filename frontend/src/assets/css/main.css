@@ -1,1 +1,2 @@
-:root{background-color: rgb(26, 26, 26); color: rgb(226, 186, 224);}
+@import url("./darktheme.css");
+:root{background-color: var(--main-color); color: var(--main-font-color);}

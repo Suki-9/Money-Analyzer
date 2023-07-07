@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/Login',
+      name: 'Login',
+      component: () => import('../views/Login.vue')
+    },
+    {
       path: '/oauth2callback',
       name: 'oauth2callback',
       component: () => import('../views/Oauth2callback.vue')
