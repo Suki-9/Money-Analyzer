@@ -24,7 +24,6 @@ export default {
             document.cookie = `access_token=${access_token.token.access_token}`;
             window.location = "./"
         }
-        
     },
     methods: {
         async OAuthURL() {

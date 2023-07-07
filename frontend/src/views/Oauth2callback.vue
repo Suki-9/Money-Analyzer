@@ -1,6 +1,4 @@
 <script>
-import { useRoute } from 'vue-router'
-
 export default {
     async mounted() {
         const response = await this.GetTOKEN();

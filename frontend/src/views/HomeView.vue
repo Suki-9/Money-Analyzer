@@ -1,7 +1,4 @@
 <script>
-
-</script>
-<script>
 import Cookie from "@/components/js/Cookie.js"
 
 export default {
@@ -10,9 +7,9 @@ export default {
     }
   },
   setup() {
-    if (!Cookie.read("refresh_token")) {
+    //トークンがない場合認証画面に飛ばす
+    if (!Cookie.read("refresh_token"))
       window.location = "./OAuth"
-    }
   },
   methods: {
 
@@ -20,6 +17,6 @@ export default {
 }
 </script>
 
-
 <template>
+  
 </template>
